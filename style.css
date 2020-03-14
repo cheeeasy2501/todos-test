@@ -1,0 +1,306 @@
+*
+{
+    font-family: Roboto;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body
+{
+    margin: 0 auto;
+}
+.container-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 32px;
+    width: 100%;
+    height: 670px;
+    overflow: auto;
+    box-shadow: 0 0 3px 3px #b3b3b3;
+    padding: 0 12px;
+    margin-top: 24px;
+}
+#todo
+{
+    margin: 0 auto;
+    display: flex;
+    padding: 4% 10%;
+    flex-direction: column;
+}
+.hat
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 24px 0 0 0;
+}
+.title
+{
+    display: flex;
+    padding: 14px 0;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    box-shadow: 0px 0px 4px 1px #b7b7b7;
+    margin: 16px 0;
+}
+.task-block
+{
+    position: relative;
+    padding: 0 0 16px 0;
+    box-shadow: 0 0 4px 1px #c1c1c1;
+    border-radius: 4px;
+    margin: 0 0 42px 0;
+    min-height: 275px;
+}
+.task-title
+{
+    font-size: 20px;
+    background: #101010;
+    padding: 16px 0;
+    color: white;
+}
+.task-title span
+{
+    padding: 0 12px;
+}
+.task-content
+{
+    padding: 16px 12px;
+}
+.divider
+{
+    height: 1px;
+    width: 100%;
+    background: #2b2727;
+    margin: 4px 0;
+}
+.task-comments__title,.task-description span
+{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 0 0 0;
+}
+.comment
+{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 8px 0;
+}
+.commands
+{
+    display: flex;
+    justify-content: space-between;
+}
+.add-task
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin: 0 auto;
+    padding: 14px;
+    background: #2fd24a;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+.add-task-modal__overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.add-task-modal_block
+{
+    padding: 48px 32px;
+    position: absolute;
+    background: #efefef;
+    border-radius: 4px;
+    max-width: 600px;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    max-height: 700px;
+    overflow: auto;
+}
+.modal__block
+{
+    padding: 18px 24px;
+    position: absolute;
+    background: #efefef;
+    border-radius: 4px;
+    max-width: 350px;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+.add-task-modal__name
+{
+    font-size: 20px;
+    margin: 0 0 8px 0;
+}
+.add-task-modal__group
+{
+    margin-bottom: 16px;
+}
+.add-task-modal__input
+{
+    padding: 8px 12px;
+    border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #cacaca;
+    box-shadow: 0 0 4px 1px #cacaca;
+    outline: none;
+    width: 100%;
+}
+.submit
+{
+    font-size: 18px;
+    background: #0b9046;
+    color: white;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+.submit:hover,.create-comment:hover
+{
+    background: #16b804;
+}
+.cancel
+{
+    font-size: 18px;
+    background: #902207;
+    color: white;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+.cancel:hover,.delete-comment:hover
+{
+    background: #da4100;
+}
+.background
+{
+    background: #2b272799;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to
+{
+    opacity: 0;
+}
+.send
+{
+    fill: white;
+    margin-left: 12px;
+}
+.comment-commands
+{
+    position: absolute;
+    bottom: -24px;
+    background: rgba(212, 212, 212, 0.95);
+    width: 100%;
+    left: 0px;
+    padding: 4px 12px;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 0 0 2px 2px #c1c1c1;
+}
+.create-comment
+{
+    display: flex;
+    background: #0b9046;
+}
+.delete-comment
+{
+    display: flex;
+    background: #cb0000;
+}
+.update-comment
+{
+    display: flex;
+    background:#f5b350;
+}
+.create-comment, .delete-comment,.update-comment
+{
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    fill: white;
+    transition: .2s ease-in;
+}
+.todo-title
+{
+    background: #1158ab;
+    color: white;
+}
+.doing-title
+{
+    background: #ffc00f;
+    color: white;
+}
+.done-title
+{
+    background: #0b9046;
+    color: white;
+}
+.update-comment:hover
+{
+    background: #ffc00f;
+}
+.todo-title,.doing-title,.done-title
+{
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+*::-webkit-scrollbar-button {
+    width:5px;
+    height:0px
+}
+
+*::-webkit-scrollbar-track {
+    background-color:#ecedee
+}
+
+*::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #969696;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+    background-color: #5f5f5f;
+}
+
+*::-webkit-scrollbar{
+    width: 4px;
+}
