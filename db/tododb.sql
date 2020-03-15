@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 14 2020 г., 23:51
+-- Время создания: Мар 15 2020 г., 21:51
 -- Версия сервера: 8.0.15
 -- Версия PHP: 7.3.9
 
@@ -32,17 +32,18 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `tasks_id` int(11) NOT NULL,
   `comment` text NOT NULL,
-  `atCreate` datetime NOT NULL
+  `atCreate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
 --
 
-INSERT INTO `comments` (`id`, `tasks_id`, `comment`, `atCreate`) VALUES
-(2, 1, '{\"content\":\"ext comment 21312312312\",\"id\":\"2\",\"lastUpdate\":\"2020-03-13 00:00:00\"}', '2020-03-13 00:00:00'),
-(4, 1, '{\"content\":\"ext comment 213\",\"id\":\"4\",\"lastUpdate\":\"2020-03-13 00:00:00\"}', '2020-03-13 00:00:00'),
-(5, 1, '{\"content\":\"ext comment 21312312312\",\"id\":\"5\",\"lastUpdate\":\"2020-03-13 00:00:00\"}', '2020-03-13 00:00:00');
+INSERT INTO `comments` (`id`, `tasks_id`, `comment`) VALUES
+(17, 1, '{\"content\":\"asdasdasd\",\"id\":1}'),
+(18, 1, '{\"content\":\"testcomment\",\"id\":18}'),
+(19, 1, '{\"content\":\"supertest\",\"id\":19}'),
+(20, 17, '{\"content\":\"microtest\",\"id\":20}');
 
 -- --------------------------------------------------------
 
@@ -62,19 +63,10 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `task`, `description`, `status`) VALUES
-(1, 'test1', 'twetsdfsf', 1),
-(5, 'test2', '', 2),
+(1, 'FirstTask', 'Description1', 1),
 (8, 'asdasdasd', 'asdasdas', 1),
-(10, 'test3 task', 'qweqweqweqwe', 3),
-(11, 'qweqwqw', 'qweqwe', 3),
-(12, 'qweqwqw', 'qweqwe', 2),
-(13, 'rewrwe', 'erwrwerew', 3),
-(14, 'qweqwe', '123123', 3),
 (15, 'qweqwe', 'qweqweqw', 3),
-(17, 'TestTask', '2 stauts', 2),
-(18, 'qweqweqweqwasczxczxczx', 'zxczxczxc', 2),
-(20, 'qweqweqw', '234324', 2),
-(21, 'СупертудуЛист', 'Нужно сделать туду лист', 1);
+(17, 'TestTask', '2 stauts', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -102,7 +94,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `tasks`

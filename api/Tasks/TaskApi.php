@@ -6,11 +6,12 @@ if (!$connect) {
 }
 switch ($method) {
     case 'GET':
-        $sql = "SELECT a.*, GROUP_CONCAT(b.comment ORDER BY b.comment ASC SEPARATOR '| ') AS comments
-     FROM `tasks` a
-     LEFT JOIN `comments` b ON a.id=b.tasks_id
-     GROUP BY a.id;";
-        break;
+        $sql = "
+         SELECT a.*, GROUP_CONCAT(b.comment ORDER BY b.comment DESC SEPARATOR '| ') AS comments
+         FROM `tasks` a
+         LEFT JOIN `comments` b ON a.id=b.tasks_id
+         GROUP BY a.id;";
+         break;
     case 'POST':
         if(empty($_POST))
         {
