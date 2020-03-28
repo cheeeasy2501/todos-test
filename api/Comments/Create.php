@@ -1,9 +1,6 @@
 <?php
 require '../config.php';
 
-if (!$connect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 switch ($method) {
     case 'POST':
         if(empty($_POST))
