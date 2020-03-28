@@ -50,11 +50,7 @@
 
         mounted()
         {
-            this.loading = true;
             this.getTodo();
-            setTimeout(function(){
-                window.app.loading = false;
-            },2000);
         },
 
         methods: {
@@ -88,7 +84,6 @@
 
             addFastComment(index)
             {
-                console.log(index);
                 this.newFastComment.index = index;
                 this.newFastComment.task_id = this.todos[index].id;
                 this.newFastComment.content = null;
@@ -117,7 +112,7 @@
             updateTask()
             {
                 axios.post(
-                    updateTask,
+                    updateTaskUrl,
                     {
                         updateId: this.modals.editTask.updateId,
                         task:this.editTask.task,
@@ -132,6 +127,7 @@
                         app.todos[app.modals.editTask.index].status = app.editTask.status;
                     })
                     .catch(function (error) {
+                        console.log('response error');
                         console.log(error);
                     });
             },
