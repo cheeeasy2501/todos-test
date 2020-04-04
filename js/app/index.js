@@ -76,6 +76,7 @@
             'v-select':VueSelect.VueSelect
         },
         computed: {
+          
             dragOptions() {
                     return {
                         animation: 200,
@@ -88,6 +89,21 @@
                 }
             },
         methods: {
+            conterBackground(count)
+            {
+                   if(count<=3)
+                   {
+                        return 'well-counter';
+                   }
+                   else if (count<=6)
+                   {
+                       return 'satisfactorily-counter';
+                   }
+                   else if (count>6)
+                   {
+                       return 'badly-counter';
+                   }
+            },
 
             setStatus(event)
             {

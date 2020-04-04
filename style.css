@@ -331,3 +331,30 @@ body
     max-height: 125px;
     overflow: auto;
   }
+  .task-counter
+  {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .well-counter
+  {
+    background: #2fd24a;
+    transition: .2s ease;
+  }
+  .satisfactorily-counter
+  {
+      background:#f19000;
+      transition: .2s ease;
+  }
+  .badly-counter
+  {
+    background:red;
+    transition: .2s ease;
+  }

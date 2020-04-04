@@ -23,7 +23,8 @@
 
     <div class="container-grid">
         <div class="column">
-            <div class="title todo-title">TODO</div>
+            <div class="title todo-title">TODO 
+            <div class="task-counter" :class="conterBackground(todos.length)">{{todos.length}}</div></div>
             <draggable v-model="todos" group="tasks" @start=""  @end="endMove($event)" class="draggable-area" v-bind="dragOptions" :data-identity="1">
             <div class="task-block"  v-for="(todo,index) in todos" :key="todo.id">
                 <div class="task-title"><span>Task {{index+1}}:{{todo.task}}</span></div>
@@ -48,7 +49,8 @@
             </draggable>
         </div>
         <div class="column">
-            <div class="title doing-title">DOING</div>
+            <div class="title doing-title">DOING 
+            <div class="task-counter" :class="conterBackground(doings.length)"> {{doings.length}}</div></div>            
             <draggable v-model="doings" group="tasks" @start="" @end="endMove($event)" class="draggable-area" v-bind="dragOptions" :data-identity="2">
             <div class="task-block" v-for="(doing,index) in doings" :key="doing.id">
                 <div class="task-title"><span>Task {{index+1}}:{{doing.task}}</span></div>
@@ -73,7 +75,8 @@
             </draggable>
         </div>
         <div class="column">
-            <div class="title done-title">DONE</div>
+            <div class="title done-title">DONE 
+            <div class="task-counter" :class="conterBackground(dones.length)">{{dones.length}}</div></div>
             <draggable v-model="dones" group="tasks" @start="" @end="endMove($event)" class="draggable-area"  v-bind="dragOptions" :data-identity="3">
             <div class="task-block"  v-for="(done,index) in dones" :key="done.id">
                 <div class="task-title"><span>Task {{index+1}}:{{done.task}}</span></div>
