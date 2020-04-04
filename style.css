@@ -25,7 +25,7 @@ body
 {
     margin: 0 auto;
     display: flex;
-    padding: 4% 10%;
+    padding: 16px;
     flex-direction: column;
 }
 .hat
@@ -53,6 +53,7 @@ body
     border-radius: 4px;
     margin: 0 0 42px 0;
     min-height: 275px;
+    background: white;
 }
 .task-title
 {
@@ -153,15 +154,17 @@ body
 {
     margin-bottom: 16px;
 }
-.add-task-modal__input
+.add-task-modal__input, .vs__dropdown-toggle
 {
     padding: 8px 12px;
     border-radius: 4px;
     border-radius: 4px;
+    background: white!important;
     border: 1px solid #cacaca;
     box-shadow: 0 0 4px 1px #cacaca;
     outline: none;
     width: 100%;
+    font-size: 18px!important;
 }
 .submit
 {
@@ -304,3 +307,27 @@ body
 *::-webkit-scrollbar{
     width: 4px;
 }
+  .draggable-area
+  {
+      height: 100%;
+  }
+  .draggable-area span
+  {
+    display: block;
+    height: 100%;
+  }
+  .ghost
+  {
+      transform: scale(0.95);
+      transition: .2s ease-in;
+      opacity: 0;
+  }
+.sortable-fallback 
+{
+    opacity: 1!important;
+}
+  .task-comments
+  {
+    max-height: 125px;
+    overflow: auto;
+  }

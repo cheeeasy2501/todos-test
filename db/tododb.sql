@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 15 2020 г., 21:51
+-- Время создания: Апр 04 2020 г., 19:13
 -- Версия сервера: 8.0.15
 -- Версия PHP: 7.3.9
 
@@ -40,10 +40,31 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `tasks_id`, `comment`) VALUES
-(17, 1, '{\"content\":\"asdasdasd\",\"id\":1}'),
 (18, 1, '{\"content\":\"testcomment\",\"id\":18}'),
-(19, 1, '{\"content\":\"supertest\",\"id\":19}'),
-(20, 17, '{\"content\":\"microtest\",\"id\":20}');
+(23, 22, '{\"content\":\"12312\",\"id\":23}'),
+(25, 15, '{\"content\":\"qweqweqwe\",\"id\":25}'),
+(26, 1, '{\"content\":\"test spike comment\",\"id\":26}');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tag`
+--
+
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL,
+  `status_value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tag`
+--
+
+INSERT INTO `tag` (`id`, `status_id`, `status_value`) VALUES
+(1, 1, 'todo'),
+(2, 2, 'doing'),
+(3, 3, 'done');
 
 -- --------------------------------------------------------
 
@@ -63,10 +84,14 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `task`, `description`, `status`) VALUES
-(1, 'FirstTask', 'Description1', 1),
-(8, 'asdasdasd', 'asdasdas', 1),
-(15, 'qweqwe', 'qweqweqw', 3),
-(17, 'TestTask', '2 stauts', 2);
+(1, 'New Tow', 'My desc Spike', 2),
+(15, 'qweqwe', 'qweqweqw', 1),
+(22, 'ячсячсячeqweqweqwe1', '123123', 2),
+(24, 'spinner', '<script src=\"https://unpkg.com/@saeris/vue-spinners\"></script>', 3),
+(26, 'test', 'qweqweqw', 2),
+(27, '123123', 'qweqweqw', 1),
+(28, 'test1231231231231231', 'qweqwe', 1),
+(29, 'supertest', 'testcomm', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -78,6 +103,12 @@ INSERT INTO `tasks` (`id`, `task`, `description`, `status`) VALUES
 ALTER TABLE `comments`
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `tasks_id` (`tasks_id`);
+
+--
+-- Индексы таблицы `tag`
+--
+ALTER TABLE `tag`
+  ADD KEY `id` (`id`);
 
 --
 -- Индексы таблицы `tasks`
@@ -94,13 +125,19 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT для таблицы `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

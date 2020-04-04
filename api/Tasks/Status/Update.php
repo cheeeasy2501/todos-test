@@ -1,5 +1,5 @@
 <?php
-require '../config.php';
+require '../../config.php';
 
 switch ($method) {
     case 'POST':
@@ -8,9 +8,8 @@ switch ($method) {
             $_POST = $jsonPost;
         }
         $updateId = (int)$_POST["updateId"];
-        $task = $_POST['task'];
-        $description = $_POST['description'];
-        $sql = "UPDATE tasks SET task='".$task."', description='".$description."'  WHERE tasks.id=".$updateId;
+        $status = (int)$_POST['status'];
+        $sql = "UPDATE tasks SET status='".$status."'  WHERE tasks.id=".$updateId;
         break;
 }
 
